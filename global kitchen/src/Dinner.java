@@ -5,11 +5,17 @@ import java.util.Scanner;
 
 public class Dinner {
 	
+	static final int Bad_Answer = -1;
+	
+	//for first question
 	public static void Start(String rep) {
 		if (rep.equals("yes")|| rep.equals("y")) {
 
 		}else if (rep.equals("no")|| rep.equals("n")) {
-			System.out.println("oh, ok");			
+			System.out.println("oh, ok");
+			
+			//Anything is ok but -1,0,1
+			//already used there three
 			System.exit(2);
 		}
 						
@@ -25,7 +31,7 @@ public class Dinner {
 		}
 		
 		System.out.println("Answer must be 'yes' or 'no'");
-		return -1;
+		return Bad_Answer;
 	}
 	
 	public static void result(int sum) {
@@ -92,7 +98,7 @@ public class Dinner {
 	
 	
 	public static void main(String[] args) {
-		System.out.println("I can help you for dinner. Ready to start?: yes/y to start");
+		System.out.println("I can help you for dinner. Ready to start? yes/no: ");
 		Scanner input = new Scanner (System.in);
 		String rep = input.next();
 		Start(rep);
@@ -119,7 +125,7 @@ public class Dinner {
 				String answer = input.next();
 				point = answerCheck(answer);
 				
-			}while(point == -1);
+			}while(point == Bad_Answer);
 			sum += point;
 		}		
 		
